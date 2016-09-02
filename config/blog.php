@@ -4,7 +4,7 @@ return [
     'title' => "SunDoge's Blog",
     'subtitle' => "等等再写",
     'description' => '先不写',
-    'author' => '我',
+    'author' => 'SunDoge',
     'page_image' => 'home-bg.jpg',
     'posts_per_page' => 10,
     'uploads' => [
