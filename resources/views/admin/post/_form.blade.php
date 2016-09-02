@@ -23,20 +23,21 @@
             <div class="col-md-10">
                 <div class="row">
                     <div class="col-md-8">
-                        <input type="text" class="form-control" name="page_image" id="page_image" onchange="handle_image_change()" alt="Image thumbnail" value="{{ $page_image }}">
+                        <input type="text" class="form-control" name="page_image" id="page_image"
+                               onchange="handle_image_change()" alt="Image thumbnail" value="{{ $page_image }}">
                     </div>
                     <script>
                         function handle_image_change() {
                             $("#page-image-preview").attr("src", function () {
                                 var value = $("#page_image").val();
-                                if ( ! value) {
+                                if (!value) {
                                     value = '{!! json_encode(config('blog.page_image')) !!}';
                                     if (value == null) {
                                         value = '';
                                     }
                                 }
                                 if (value.substr(0, 4) != 'http' && value.substr(0, 1) != '/') {
-                                    value = {!! json_encode(config('blog.uploads.webpath')) !!} + '/' + value;
+                                    value = {!! json_encode(config('blog.uploads.webpath')) !!} +'/' + value;
                                 }
                                 return value;
                             });
@@ -44,7 +45,8 @@
                     </script>
                     <div class="visible-sm space-10"></div>
                     <div class="col-md-4 text-right">
-                        <img src="{{ page_image($page_image) }}" class="img img_responsive" id="page-image-preview" style="max-height:40px">
+                        <img src="{{ page_image($page_image) }}" class="img img_responsive" id="page-image-preview"
+                             style="max-height:40px">
                     </div>
                 </div>
             </div>
@@ -64,7 +66,8 @@
                 Pub Date
             </label>
             <div class="col-md-8">
-                <input class="form-control" name="publish_date" id="publish_date" type="text" value="{{ $publish_date }}">
+                <input class="form-control" name="publish_date" id="publish_date" type="text"
+                       value="{{ $publish_date }}">
             </div>
         </div>
         <div class="form-group">
@@ -72,7 +75,8 @@
                 Pub Time
             </label>
             <div class="col-md-8">
-                <input class="form-control" name="publish_time" id="publish_time" type="text" value="{{ $publish_time }}">
+                <input class="form-control" name="publish_time" id="publish_time" type="text"
+                       value="{{ $publish_time }}">
             </div>
         </div>
         <div class="form-group">
@@ -112,9 +116,8 @@
                 Meta
             </label>
             <div class="col-md-8">
-                <textarea class="form-control" name="meta_description" id="meta_description" rows="6">
-                    {{ $meta_description }}
-                </textarea>
+                <textarea class="form-control" name="meta_description" id="meta_description"
+                          rows="6">{{ $meta_description }}</textarea>
             </div>
         </div>
 
