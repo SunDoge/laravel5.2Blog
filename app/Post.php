@@ -153,5 +153,26 @@ class Post extends Model
 
         return $query->first();
     }
+
+    /**
+     * Return older post before this on or null
+     *
+     * @param Tag|null $tag
+     * @return mixed
+     */
+    public function olderPost(Tag $tag=null)
+    {
+        $query = static::where('published_at','<',$this->published_at)
+            ->where('is_draft',0)
+            ->orderBy('published_at','desc');
+
+        if ($tag){
+            $query = $query->whereHas('tags',function ($q)use($tag){
+                $q->where('tag',$tag->tag);
+            });
+        }
+
+        return $query->first();
+    }
 }
 

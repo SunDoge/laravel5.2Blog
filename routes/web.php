@@ -17,6 +17,13 @@ Route::get('/', function () {
 
 Route::resource('blog', 'BlogController');
 
+//mail
+Route::get('contact', 'ContactController@showForm');
+Route::post('contact', 'ContactController@sendContactInfo');
+
+//site map
+Route::get('sitemap.xml', 'BlogController@siteMap');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

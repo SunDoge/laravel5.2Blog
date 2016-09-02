@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Jobs\BlogIndexData;
 use App\Post;
+use App\Services\SiteMap;
 use App\Tag;
 use Illuminate\Http\Request;
 
@@ -29,5 +30,12 @@ class BlogController extends Controller
         }
 
         return view($post->layout, compact('post', 'tag'));
+    }
+
+    public function siteMap(SiteMap $siteMap)
+    {
+        $map = $siteMap->getSiteMap();
+
+        return response($map)->header('Content-type', 'text/xml');
     }
 }
