@@ -56,8 +56,9 @@ return [
     */
 
     'from' => [
-        'address' => 'hd2008119@sina.com',
-        'name' => 'SunDoge',
+//        'address' => 'hd2008119@sina.com',
+        'address' => env('MAIL_USERNAME'),
+        'name' => '不写',
     ],
 
     /*
