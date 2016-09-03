@@ -23,6 +23,7 @@
 @include('blog.partials.page-nav')
 
 @yield('page-header')
+
 @yield('content')
 
 @include('blog.partials.page-footer')

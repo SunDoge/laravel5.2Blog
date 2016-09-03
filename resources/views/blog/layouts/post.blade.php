@@ -3,6 +3,8 @@
   'meta_description' => $post->meta_description ?: config('blog.description'),
 ])
 
+{{--@include('editor::decode')--}}
+
 @section('page-header')
     <header class="intro-header"
             style="background-image: url('{{ page_image($post->page_image) }}')">

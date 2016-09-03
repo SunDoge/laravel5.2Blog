@@ -70,8 +70,8 @@ return [
                 'https'     => 'dn-laravelacademy.qbox.me',         //你的HTTPS域名
                 'custom'    => 'static.laravelacademy.org',     //你的自定义域名
             ],
-            'access_key'=> 'cg1dvbGQ4O-NAfHgGV1Fjn6sEB_FP83Y_jPuIHdd',  //AccessKey
-            'secret_key'=> '3GoQAQFUuV7rpTHkKLsagwpf9ntnNPZUNXI1H71r',  //SecretKey
+            'access_key'=> env('QINIU_AK'),  //AccessKey
+            'secret_key'=> env('QINIU_SK'),  //SecretKey
             'bucket'    => 'blog',  //Bucket名字
             'notify_url'=> '',  //持久化处理回调地址
         ],
