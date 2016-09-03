@@ -19,6 +19,7 @@
             <ul class="nav navbar-nav">
                 <li>
                     <a href="/blog">Home</a>
+                    <a href="{{ config('blog.github') }}"></a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

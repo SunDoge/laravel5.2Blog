@@ -10,12 +10,12 @@ class SiteMap
 {
     public function getSiteMap()
     {
-        if (Cache::has('site-map')){
+        if (Cache::has('site-map')) {
             return Cache::get('site-map');
         }
 
         $siteMap = $this->buildSiteMap();
-        Cache::add('site-map',$siteMap,120);
+        Cache::add('site-map', $siteMap, 120);
         return $siteMap;
     }
 
@@ -28,10 +28,10 @@ class SiteMap
         $dates = array_values($postsInfo);
         sort($dates);
         $lastmod = last($dates);
-        $url = trim(url(), '/') . '/';
+        $url = trim(url('/'), '/') . '/';
 
         $xml = [];
-        $xml[] = '<?xml version="1.0" encoding="UTF-8"?'.'>';
+        $xml[] = '<?xml version="1.0" encoding="UTF-8"?' . '>';
         $xml[] = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
         $xml[] = '  <url>';
         $xml[] = "    <loc>$url</loc>";
@@ -60,7 +60,7 @@ class SiteMap
         return Post::where('published_at', '<=', Carbon::now())
             ->where('is_draft', 0)
             ->orderBy('published_at', 'desc')
-            ->lists('updated_at', 'slug')
+            ->pluck('updated_at', 'slug')
             ->all();
     }
 }

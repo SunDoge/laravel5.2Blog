@@ -11,7 +11,9 @@
         "michelf/php-markdown": "^1.6",
         "dflydev/apache-mime-types": "^1.0",
         "doctrine/dbal": "^2.5",
-        "michelf/php-smartypants": "1.6.x-dev"
+        "michelf/php-smartypants": "1.6.x-dev",
+        "zgldh/qiniu-laravel-storage": "^0.4.3",
+        "mews/captcha": "^2.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

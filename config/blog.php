@@ -13,6 +13,7 @@ return [
     ],
 
     'cantact_email' => '384813529@qq.com',
+    'github' => 'https://github.com/SunDoge',
 
     'api' => [
         'translation' => 'http://fanyi.baidu.com/v2transapi',
