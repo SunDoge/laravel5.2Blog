@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('blog/titles/{query?}', 'BlogController@getTitles');
 Route::resource('blog', 'BlogController');
 
 //mail
@@ -39,5 +40,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::delete('file', 'UploadController@deleteFile');
         Route::post('folder', 'UploadController@createFolder');
         Route::delete('folder', 'UploadController@deleteFolder');
+
+        //qiniu
+        Route::post('qiniu', 'UploadController@uploadQiniu');
     });
 });

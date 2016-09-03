@@ -1,3 +1,4 @@
+@include('editor::head')
 <div class="row">
     <div class="col-md-8">
         <div class="form-group">
@@ -51,13 +52,34 @@
                 </div>
             </div>
         </div>
+
         <div class="form-group">
+            <label for="layout" class="col-md-2 control-label">
+                Layout
+            </label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="layout" id="layout" value="{{ $layout }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+
             <label for="content" class="col-md-2 control-label">
                 Content
             </label>
-            <div class="col-md-10">
-                <textarea class="form-control" name="content" rows="14" id="content">{{ $content }}</textarea>
+
+            <div class="container-fluid">
+                <div class="col-md-10">
+                    <hr>
+                </div>
             </div>
+            <div class="container-fluid">
+                <div class="editor">
+                <textarea id="myEditor" class="form-control" name="content" rows="14"
+                          id="content">{{ $content }}</textarea>
+                </div>
+            </div>
+
         </div>
     </div>
     <div class="col-md-4">
@@ -103,14 +125,14 @@
                 </select>
             </div>
         </div>
-        <div class="form-group">
-            <label for="layout" class="col-md-3 control-label">
-                Layout
-            </label>
-            <div class="col-md-8">
-                <input type="text" class="form-control" name="layout" id="layout" value="{{ $layout }}">
-            </div>
-        </div>
+        {{--<div class="form-group">--}}
+        {{--<label for="layout" class="col-md-3 control-label">--}}
+        {{--Layout--}}
+        {{--</label>--}}
+        {{--<div class="col-md-8">--}}
+        {{--<input type="text" class="form-control" name="layout" id="layout" value="{{ $layout }}">--}}
+        {{--</div>--}}
+        {{--</div>--}}
         <div class="form-group">
             <label for="meta_description" class="col-md-3 control-label">
                 Meta

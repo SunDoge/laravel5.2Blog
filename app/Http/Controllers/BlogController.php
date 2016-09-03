@@ -38,4 +38,20 @@ class BlogController extends Controller
 
         return response($map)->header('Content-type', 'text/xml');
     }
+
+    public function getTitles($query = null)
+    {
+        $titles = Post::select('title', 'slug');
+        if ($query) {
+            $titles = $titles->where('title', '%' . $query . '%');
+        }
+        $titles = $titles->get()->toArray();
+        $result = [];
+
+        foreach ($titles as $key => $title) {
+            $result += [$title['title'] => url('/blog') .'/'. $title['slug']];
+        }
+
+        return response()->json($result);
+    }
 }

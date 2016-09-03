@@ -13,7 +13,8 @@
         "doctrine/dbal": "^2.5",
         "michelf/php-smartypants": "1.6.x-dev",
         "zgldh/qiniu-laravel-storage": "^0.4.3",
-        "mews/captcha": "^2.1"
+        "mews/captcha": "^2.1",
+        "yuanchao/laravel-5-markdown-editor": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

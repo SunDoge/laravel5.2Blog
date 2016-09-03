@@ -12,5 +12,8 @@
         (document.getElementsByTagName('head')[0]
         || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
+
+    var ad = document.getElementsByClassName('ds-powered-by');
+    ad.innerHTML="papapa";
 </script>
 <!-- 多说公共JS代码 end -->

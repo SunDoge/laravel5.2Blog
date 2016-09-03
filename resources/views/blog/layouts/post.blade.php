@@ -61,22 +61,24 @@
                         </li>
                     @endif
                 @else
-                    @if ($post->newerPost($tag))
-                        <li class="previous">
-                            <a href="{!! $post->newerPost($tag)->url($tag) !!}">
-                                <i class="fa fa-long-arrow-left fa-lg"></i>
-                                Next Newer {{ $tag ? $tag->tag : '' }} Post
-                            </a>
-                        </li>
-                    @endif
-                    @if ($post->olderPost($tag))
-                        <li class="next">
-                            <a href="{!! $post->olderPost($tag)->url($tag) !!}">
-                                Next Older {{ $tag ? $tag->tag : '' }} Post
-                                <i class="fa fa-long-arrow-right"></i>
-                            </a>
-                        </li>
-                    @endif
+                    <div class="row">
+                        @if ($post->newerPost($tag))
+                            <li class="previous">
+                                <a href="{!! $post->newerPost($tag)->url($tag) !!}">
+                                    <i class="fa fa-long-arrow-left fa-lg"></i>
+                                    Next Newer {{ $tag ? $tag->tag : '' }} Post
+                                </a>
+                            </li>
+                        @endif
+                        @if ($post->olderPost($tag))
+                            <li class="next">
+                                <a href="{!! $post->olderPost($tag)->url($tag) !!}">
+                                    Next Older {{ $tag ? $tag->tag : '' }} Post
+                                    <i class="fa fa-long-arrow-right"></i>
+                                </a>
+                            </li>
+                        @endif
+                    </div>
                 @endif
             </ul>
         </div>

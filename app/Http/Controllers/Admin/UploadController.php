@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
+use YuanChao\Editor\EndaEditor;
+use zgldh\QiniuStorage\QiniuStorage;
 
 class UploadController extends Controller
 {
@@ -104,4 +106,63 @@ class UploadController extends Controller
             ->back()
             ->withErrors([$error]);
     }
+
+    public function uploadQiniu(Request $request)
+    {
+        $data = EndaEditor::uploadImgFile('uploads/test');
+        return json_encode($data);
+
+//        $file = $_FILES['file'];
+//        $fileName = $request->get('file_name');
+//        $fileName = $fileName ?: $file['name'];
+//        $path = str_finish($request->get('folder'), '/') . $fileName;
+//        $content = File::get($file['tmp_name']);
+//
+//        $disk = QiniuStorage::disk('qiniu');
+//        $result = $disk->put($fileName,$content);
+//        return $result;
+
+
+//        try {
+//            // File Upload
+//            if ($request->hasFile('image')) {
+//                $pic = $request->file('image');
+//                if ($pic->isValid()) {
+//                    $newName = md5(rand(1, 1000) . $pic->getClientOriginalName()) . "." . $pic->getClientOriginalExtension();
+////                    $pic->move($path, $newName);
+////                    $url = asset($path . '/' . $newName);
+//                    $disk->put($newName, $pic);
+//
+//                } else {
+//                    self::addError('The file is invalid');
+//                }
+//            } else {
+//                self::addError('Not File');
+//            }
+//        } catch (\Exception $e) {
+//            self::addError($e->getMessage());
+//        }
+//
+//        $url = $disk->downloadUrl($newName);
+//        $data = array(
+//            'status' => empty($message) ? 0 : 1,
+//            'message' => self::getLastError(),
+//            'url' => !empty($url) ? $url : ''
+//        );
+//
+//        return $data;
+
+    }
+
+//    protected static function getLastError()
+//    {
+//        return empty(self::$_errors) ? '' : array_pop(self::$_errors);
+//    }
+//
+//    protected static function addError($message)
+//    {
+//        if (!empty($message)) {
+//            self::$_errors[] = $message;
+//        }
+//    }
 }

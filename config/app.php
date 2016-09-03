@@ -169,6 +169,7 @@ return [
 
         zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
+        YuanChao\Editor\EndaEditorServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -227,6 +228,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
+        'EndaEditor' => YuanChao\Editor\Facade\EndaEditorFacade::class,
 
     ],
 

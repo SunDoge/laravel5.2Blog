@@ -12,7 +12,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p class="copyright">Copyright © <a href="{{ config('blog.github') }}">{{ config('blog.author') }}</a></p>
+                <p class="copyright">Copyright © <a href="{{ config('blog.github') }}">{{ config('blog.author') }}</a>
+                </p>
             </div>
         </div>
     </div>
