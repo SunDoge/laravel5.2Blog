@@ -10,16 +10,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/blog">{{ config('blog.name') }}</a>
+            <a class="navbar-brand" href="{{ config('github_repo') }}">{{ config('blog.name') }}</a>
         </div>
 
-        {{-- Collect the nav links, forms, and other content for toggling --}}
         {{-- Collect the nav links, forms, and other content for toggling --}}
         <div class="collapse navbar-collapse" id="navbar-main">
             <ul class="nav navbar-nav">
                 <li>
                     <a href="/blog">Home</a>
-                    <a href="{{ config('blog.github') }}"></a>
+                    <a href="{{ config('blog.github') }}">GitHub</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
