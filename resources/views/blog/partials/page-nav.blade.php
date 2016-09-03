@@ -18,6 +18,8 @@
             <ul class="nav navbar-nav">
                 <li>
                     <a href="/blog">Home</a>
+                </li>
+                <li>
                     <a href="{{ config('blog.github') }}">GitHub</a>
                 </li>
             </ul>
