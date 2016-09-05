@@ -14,7 +14,8 @@
         "michelf/php-smartypants": "1.6.x-dev",
         "zgldh/qiniu-laravel-storage": "^0.4.3",
         "mews/captcha": "^2.1",
-        "yuanchao/laravel-5-markdown-editor": "dev-master"
+        "yuanchao/laravel-5-markdown-editor": "dev-master",
+        "suin/php-rss-writer": "^1.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -54,7 +54,7 @@ class PostController extends Controller
         $post->fill($request->postFillData());
         $post->save();
         $post->syncTags($request->get('tags', []));
-
+//        dd($post->all()->toArray());
         if ($request->action === 'continue') {
             return redirect()
                 ->back()

@@ -21,9 +21,8 @@
         Meta Description
     </label>
     <div class="col-md-8">
-        <textarea class="form-control" id="meta_description" name="meta_description" rows="3">
-            {{ $meta_description }}
-        </textarea>
+        <textarea class="form-control" id="meta_description" name="meta_description"
+                  rows="3">{{ $meta_description }}</textarea>
     </div>
 </div>
 

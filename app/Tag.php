@@ -27,7 +27,7 @@ class Tag extends Model
         }
 
         $found = static::whereIn('tag', $tags)->pluck('tag')->all();
-
+//        dd(array_diff($tags, $found));
         foreach (array_diff($tags, $found) as $tag) {
             static::create([
                 'tag' => $tag,

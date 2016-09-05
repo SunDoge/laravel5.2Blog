@@ -64,11 +64,12 @@ class Post extends Model
     public function syncTags(array $tags)
     {
         Tag::addNeededTags($tags);
-
+//        dd( Tag::whereIn('tag', $tags)->pluck('id')->all());
         if (count($tags)) {
             $this->tags()->sync(
                 Tag::whereIn('tag', $tags)->pluck('id')->all()
             );
+            return;
         }
 
         $this->tags()->detach();
