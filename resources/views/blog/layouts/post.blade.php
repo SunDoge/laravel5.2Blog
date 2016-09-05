@@ -4,6 +4,14 @@
 ])
 
 {{--@include('editor::decode')--}}
+@section('styles')
+    <link rel="stylesheet" href="/assets/code-prettify/skins/desert.css">
+    <style>
+        .linenums li {
+            list-style-type: decimal;
+        }
+    </style>
+@stop
 
 @section('page-header')
     <header class="intro-header"
@@ -86,4 +94,13 @@
         </div>
 
     </div>
+@stop
+
+@section('scripts')
+    @include('editor::decode')
+    <script src="/assets/code-prettify/prettify.js"></script>
+    <script>
+        $('pre').addClass('prettyprint linenums');
+        prettyPrint();
+    </script>
 @stop
