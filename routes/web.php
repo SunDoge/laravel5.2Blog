@@ -21,10 +21,13 @@ Route::resource('blog', 'BlogController');
 //mail
 Route::get('contact', 'ContactController@showForm');
 Route::post('contact', 'ContactController@sendContactInfo');
+//rss
+Route::get('rss','BlogController@rss');
 
 //site map
 Route::get('sitemap.xml', 'BlogController@siteMap');
 
+//Auth::routes();
 Route::group(['namespace' => 'Auth'], function () {
     Route::get('login', 'LoginController@showLoginForm');
     Route::post('login', 'LoginController@login');

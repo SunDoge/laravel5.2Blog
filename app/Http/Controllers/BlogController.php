@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Jobs\BlogIndexData;
 use App\Post;
+use App\Services\RssFeed;
 use App\Services\SiteMap;
 use App\Tag;
 use Illuminate\Http\Request;
@@ -49,9 +50,16 @@ class BlogController extends Controller
         $result = [];
 
         foreach ($titles as $key => $title) {
-            $result += [$title['title'] => url('/blog') .'/'. $title['slug']];
+            $result += [$title['title'] => url('/blog') . '/' . $title['slug']];
         }
 
         return response()->json($result);
+    }
+
+    public function rss(RssFeed $feed)
+    {
+        $rss = $feed->getRSS();
+
+        return response($rss)->header('Content-type', 'application/rss+xml');
     }
 }
