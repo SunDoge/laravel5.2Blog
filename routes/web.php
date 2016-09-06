@@ -22,7 +22,7 @@ Route::resource('blog', 'BlogController');
 Route::get('contact', 'ContactController@showForm');
 Route::post('contact', 'ContactController@sendContactInfo');
 //rss
-Route::get('rss','BlogController@rss');
+Route::get('rss', 'BlogController@rss');
 
 //site map
 Route::get('sitemap.xml', 'BlogController@siteMap');
@@ -36,7 +36,7 @@ Route::group(['namespace' => 'Auth'], function () {
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function () {
     Route::resource('post', 'PostController', ['except' => 'show']);
     Route::resource('tag', 'TagController', ['except' => 'show']);
 
