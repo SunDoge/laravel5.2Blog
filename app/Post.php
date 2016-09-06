@@ -123,11 +123,11 @@ class Post extends Model
      */
     public function tagLinks($base = '/blog?tag=%TAG%')
     {
-        $tags = $this->tags()->pluck('tag');
+        $tags = $this->tags()->get();
         $return = [];
         foreach ($tags as $tag) {
-            $url = str_replace('%TAG%', urlencode($tag), $base);
-            $return[] = '<a href="' . $url . '">' . e($tag) . '</a>';
+            $url = str_replace('%TAG%', urlencode($tag->tag), $base);
+            $return[] = '<a href="' . $url . '"><span class="label label-info">' . e($tag->tag) . '</span></a>';
         }
 
         return $return;
