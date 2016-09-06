@@ -25,7 +25,11 @@ Route::post('contact', 'ContactController@sendContactInfo');
 //site map
 Route::get('sitemap.xml', 'BlogController@siteMap');
 
-Auth::routes();
+Route::group(['namespace' => 'Auth'], function () {
+    Route::get('login', 'LoginController@showLoginForm');
+    Route::post('login', 'LoginController@login');
+    Route::post('logout', 'LoginController@logout');
+});
 
 Route::get('/home', 'HomeController@index');
 
