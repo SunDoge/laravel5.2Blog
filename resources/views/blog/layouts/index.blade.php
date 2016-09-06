@@ -35,7 +35,7 @@
                             Posted on {{ $post->published_at->format('F j, Y') }}
                             @if ($post->tags->count())
                                 in
-                                {!! join(', ', $post->tagLinks()) !!}
+                                {!! join(' ', $post->tagLinks()) !!}
                             @endif
                         </p>
                     </div>
