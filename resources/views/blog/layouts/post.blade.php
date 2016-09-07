@@ -26,7 +26,7 @@
               Posted on {{ $post->published_at->format('F j, Y') }}
                             @if ($post->tags->count())
                                 in
-                                {!! join(', ', $post->tagLinks()) !!}
+                                {!! join(' ', $post->tagLinks()) !!}
                             @endif
             </span>
                     </div>
@@ -51,47 +51,46 @@
 
     {{-- The Pager --}}
     <div class="container">
-        <div class="row">
-            <ul class="pager">
-                @if ($tag && $tag->reverse_direction)
-                    @if ($post->olderPost($tag))
+        <ul class="pager">
+            @if ($tag && $tag->reverse_direction)
+                @if ($post->olderPost($tag))
+                    <li class="previous">
+                        <a href="{!! $post->olderPost($tag)->url($tag) !!}">
+                            <i class="fa fa-long-arrow-left fa-lg"></i>
+                            Previous {{ $tag->tag }} Post
+                        </a>
+                    </li>
+                @endif
+                @if ($post->newerPost($tag))
+                    <li class="next">
+                        <a href="{!! $post->newerPost($tag)->url($tag) !!}">
+                            Next {{ $tag->tag }} Post
+                            <i class="fa fa-long-arrow-right"></i>
+                        </a>
+                    </li>
+                @endif
+            @else
+                <div class="row">
+                    @if ($post->newerPost($tag))
                         <li class="previous">
-                            <a href="{!! $post->olderPost($tag)->url($tag) !!}">
+                            <a href="{!! $post->newerPost($tag)->url($tag) !!}">
                                 <i class="fa fa-long-arrow-left fa-lg"></i>
-                                Previous {{ $tag->tag }} Post
+                                Next Newer {{ $tag ? $tag->tag : '' }} Post
                             </a>
                         </li>
                     @endif
-                    @if ($post->newerPost($tag))
+                    @if ($post->olderPost($tag))
                         <li class="next">
-                            <a href="{!! $post->newerPost($tag)->url($tag) !!}">
-                                Next {{ $tag->tag }} Post
+                            <a href="{!! $post->olderPost($tag)->url($tag) !!}">
+                                Next Older {{ $tag ? $tag->tag : '' }} Post
                                 <i class="fa fa-long-arrow-right"></i>
                             </a>
                         </li>
                     @endif
-                @else
-                    <div class="row">
-                        @if ($post->newerPost($tag))
-                            <li class="previous">
-                                <a href="{!! $post->newerPost($tag)->url($tag) !!}">
-                                    <i class="fa fa-long-arrow-left fa-lg"></i>
-                                    Next Newer {{ $tag ? $tag->tag : '' }} Post
-                                </a>
-                            </li>
-                        @endif
-                        @if ($post->olderPost($tag))
-                            <li class="next">
-                                <a href="{!! $post->olderPost($tag)->url($tag) !!}">
-                                    Next Older {{ $tag ? $tag->tag : '' }} Post
-                                    <i class="fa fa-long-arrow-right"></i>
-                                </a>
-                            </li>
-                        @endif
-                    </div>
-                @endif
-            </ul>
-        </div>
+                </div>
+            @endif
+        </ul>
+
 
     </div>
 @stop

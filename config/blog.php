@@ -2,8 +2,8 @@
 return [
     'name' => "SunDoge's Blog",
     'title' => "SunDoge's Blog",
-    'subtitle' => "等等再写",
-    'description' => '先不写',
+    'subtitle' => "Built with Laravel 5.3",
+    'description' => 'SunDoge\'s open-source blog built with Laravel 5.3',
     'author' => 'SunDoge',
     'page_image' => 'home-bg.jpg',
     'posts_per_page' => 10,
