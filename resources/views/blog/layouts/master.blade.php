@@ -22,6 +22,7 @@
     <![endif]-->
 </head>
 <body>
+@include('blog.partials.google')
 @include('blog.partials.page-nav')
 
 @yield('page-header')
