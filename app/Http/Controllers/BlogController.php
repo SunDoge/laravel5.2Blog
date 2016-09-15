@@ -62,4 +62,9 @@ class BlogController extends Controller
 
         return response($rss)->header('Content-type', 'application/rss+xml');
     }
+
+    public function search()
+    {
+
+    }
 }
