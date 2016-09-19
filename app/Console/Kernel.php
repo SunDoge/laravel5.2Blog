@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
 
         //Run once a day
-        $schedule->command('queue:work')->daily();
+//        $schedule->command('queue:work')->daily();
     }
 
     /**
