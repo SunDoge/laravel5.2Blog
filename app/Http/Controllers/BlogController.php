@@ -13,6 +13,11 @@ use App\Http\Requests;
 
 class BlogController extends Controller
 {
+    public function welcome()
+    {
+        return redirect('blog');
+    }
+
     public function index(Request $request)
     {
         $tag = $request->get('tag');

@@ -11,10 +11,7 @@
 |
 */
 
-//Route::get('/', function () {
-////    return view('welcome');
-//    return redirect('blog');
-//});
+Route::get('/', 'BlogController@welcome');
 
 Route::get('blog/titles/{query?}', 'BlogController@getTitles');
 Route::resource('blog', 'BlogController');
