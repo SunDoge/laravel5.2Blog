@@ -15,6 +15,7 @@ return [
 
     'contact_email' => '384813529@qq.com',
     'github' => 'https://github.com/SunDoge',
+    'g+' => 'https://plus.google.com/u/0/113975193637778537373',
     'github_repo' => 'https://github.com/SunDoge/laravel5.2Blog',
 
     'api' => [

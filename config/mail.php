@@ -58,7 +58,7 @@ return [
     'from' => [
 //        'address' => 'hd2008119@sina.com',
         'address' => env('MAIL_USERNAME'),
-        'name' => '不写',
+        'name' => 'gayhub_blog',
     ],
 
     /*

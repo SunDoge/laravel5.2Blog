@@ -51,15 +51,15 @@
               {{--</span>--}}
                         {{--</a>--}}
                     {{--</li>--}}
-                    {{--<li>--}}
-                        {{--<a href="https://www.google.com/+PERSONALIZE" data-toggle="tooltip"--}}
-                           {{--title="My Google+ Page">--}}
-              {{--<span class="fa-stack fa-lg">--}}
-                {{--<i class="fa fa-circle fa-stack-2x"></i>--}}
-                {{--<i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>--}}
-              {{--</span>--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
+                    <li>
+                        <a href="{{ config('blog.g+') }}" data-toggle="tooltip"
+                           title="My Google+ Page">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+                        </a>
+                    </li>
                     {{--<li>--}}
                         {{--<a href="http://www.linkedin.com/in/PERSONALIZE/" data-toggle="tooltip"--}}
                            {{--title="My LinkedIn Page">--}}
