@@ -170,6 +170,7 @@ return [
         zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
         YuanChao\Editor\EndaEditorServiceProvider::class,
+        Laravel\Scout\ScoutServiceProvider::class,
 
         /*
          * Application Service Providers...

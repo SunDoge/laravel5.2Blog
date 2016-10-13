@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Jobs\BlogIndexData;
 use App\Post;
+use App\Services\FullTextSearch;
 use App\Services\RssFeed;
 use App\Services\SiteMap;
 use App\Tag;
@@ -68,8 +69,10 @@ class BlogController extends Controller
         return response($rss)->header('Content-type', 'application/rss+xml');
     }
 
-    public function search()
+    public function search(Request $request)
     {
-
+        $search = new FullTextSearch();
+        $data = $search->search();
+        $layout = 'blog.layouts.index';
     }
 }

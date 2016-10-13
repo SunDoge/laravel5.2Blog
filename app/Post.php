@@ -6,9 +6,12 @@ use App\Services\Markdowner;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
+    use Searchable;
+
     protected $dates = ['published_at'];
 
     protected $fillable = [
