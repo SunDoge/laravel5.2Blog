@@ -197,7 +197,7 @@ class Post extends Model
     {
         $html = $this->attributes['content_html'];
 
-        $this->attributes['meta_description'] = substr(strip_tags($html), 0, 155);
+        $this->attributes['meta_description'] = mb_substr(strip_tags($html), 0, 155, 'utf-8');
 
     }
 
