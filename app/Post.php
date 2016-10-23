@@ -22,7 +22,7 @@ class Post extends Model
         'meta_description',
         'layout',
         'is_draft',
-        'published_at'
+        'published_at',
     ];
 
     public function setTitleAttribute($value)
@@ -61,7 +61,9 @@ class Post extends Model
         $markdown = new Markdowner();
 
         $this->attributes['content_raw'] = $value;
+
         $this->attributes['content_html'] = $markdown->toHTML($value);
+
     }
 
     public function syncTags(array $tags)
@@ -142,16 +144,16 @@ class Post extends Model
      * @param Tag|null $tag
      * @return mixed
      */
-    public function newerPost(Tag $tag=null)
+    public function newerPost(Tag $tag = null)
     {
-        $query = static::where('published_at','>',$this->published_at)
-            ->where('published_at','<=',Carbon::now())
-            ->where('is_draft',0)
-            ->orderBy('published_at','asc');
+        $query = static::where('published_at', '>', $this->published_at)
+            ->where('published_at', '<=', Carbon::now())
+            ->where('is_draft', 0)
+            ->orderBy('published_at', 'asc');
 
-        if ($tag){
-            $query=$query->whereHas('tags',function ($q) use($tag){
-                $q->where('tag',$tag->tag);
+        if ($tag) {
+            $query = $query->whereHas('tags', function ($q) use ($tag) {
+                $q->where('tag', $tag->tag);
             });
         }
 
@@ -164,19 +166,40 @@ class Post extends Model
      * @param Tag|null $tag
      * @return mixed
      */
-    public function olderPost(Tag $tag=null)
+    public function olderPost(Tag $tag = null)
     {
-        $query = static::where('published_at','<',$this->published_at)
-            ->where('is_draft',0)
-            ->orderBy('published_at','desc');
+        $query = static::where('published_at', '<', $this->published_at)
+            ->where('is_draft', 0)
+            ->orderBy('published_at', 'desc');
 
-        if ($tag){
-            $query = $query->whereHas('tags',function ($q)use($tag){
-                $q->where('tag',$tag->tag);
+        if ($tag) {
+            $query = $query->whereHas('tags', function ($q) use ($tag) {
+                $q->where('tag', $tag->tag);
             });
         }
 
         return $query->first();
     }
+
+//    public function setMetaDescription($value)
+//    {
+////        if (!$this->meta_description) {
+////            $this->attributes['meta_description'] = substr(strip_tags($value), 0, 155);
+////            var_dump($this->attributes['meta_description']);echo '<br>'.$this->attributes['meta_description'];
+////            dd($this->attributes['meta_description']);
+////
+////        }
+//        $value = 'sdasdfadsfasdfasdf';
+//        $this->attributes['meta_description'] = substr(strip_tags($value), 0, 155);
+//    }
+
+    public function setMetaDescriptionAttribute($value)
+    {
+        $html = $this->attributes['content_html'];
+
+        $this->attributes['meta_description'] = substr(strip_tags($html), 0, 155);
+
+    }
+
 }
 

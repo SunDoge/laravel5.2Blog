@@ -8,6 +8,7 @@ use App\Services\FullTextSearch;
 use App\Services\RssFeed;
 use App\Services\SiteMap;
 use App\Tag;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -24,7 +25,6 @@ class BlogController extends Controller
         $tag = $request->get('tag');
         $data = $this->dispatch(new BlogIndexData($tag));
         $layout = $tag ? Tag::layout($tag) : 'blog.layouts.index';
-//        dd($data);
         return view($layout, $data);
     }
 
@@ -71,8 +71,7 @@ class BlogController extends Controller
 
     public function search(Request $request)
     {
-        $search = new FullTextSearch();
-        $data = $search->search();
-        $layout = 'blog.layouts.index';
+        $query = $request->input('query');
+        return Post::search($query)->where('is_draft', 0)->get();
     }
 }

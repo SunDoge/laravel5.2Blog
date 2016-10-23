@@ -13,6 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-//Route::get('/user', function (Request $request) {
+Route::get('/user', function (Request $request) {
 //    return $request->user();
-//})->middleware('auth:api');
+    return 'papapa';
+})->middleware('api');
+
+Route::get('/test', function (){
+    return 'test';
+});
+
+Route::post('/search', 'BlogController@search');

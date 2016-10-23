@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ config('blog.github_repo') }}">{{ config('blog.name') }}</a>
+            <a class="navbar-brand" href="/">{{ config('blog.name') }}</a>
         </div>
 
         {{-- Collect the nav links, forms, and other content for toggling --}}
@@ -20,10 +20,13 @@
                     <a href="/blog">Home</a>
                 </li>
                 <li>
-                    <a href="{{ config('blog.github') }}">GitHub</a>
+                    <a href="{{ config('blog.github_repo') }}">GitHub</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a onclick=""><span class="glyphicon glyphicon-search">haven't finished</span></a>
+                </li>
                 <li>
                     <a href="/contact">Contact</a>
                 </li>

@@ -3,12 +3,13 @@
 namespace App\Services;
 
 use App\Post;
+use Carbon\Carbon;
 
 class FullTextSearch
 {
-    public function search($keyword)
+    public static function search($query)
     {
-        $posts = Post::search($keyword)->with('tags')
+        $posts = Post::search($query)->with('tags')
             ->where('published_at', '<=', Carbon::now())
             ->where('is_draft', 0)
             ->orderBy('published_at', 'desc')
@@ -16,7 +17,7 @@ class FullTextSearch
 
         return [
             'title' => 'Results',
-            'subtitle' => $keyword,
+            'subtitle' => $query,
             'posts' => $posts,
             'page_image' => config('blog.page_image'),
             'meta_description' => config('blog.description'),
