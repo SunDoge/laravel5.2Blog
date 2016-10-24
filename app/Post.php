@@ -202,7 +202,7 @@ class Post extends Model
 
             $html = strip_tags($html);
 
-            $this->attributes['meta_description'] = mb_substr(str_replace(PHP_EOL, '', $html), 0, 150, 'utf-8');
+            $this->attributes['meta_description'] = mb_substr(str_replace(PHP_EOL, '', $html), 0, 150);
         }
     }
 
