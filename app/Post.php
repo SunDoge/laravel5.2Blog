@@ -195,12 +195,15 @@ class Post extends Model
 
     public function setMetaDescriptionAttribute($value)
     {
-        $html = $this->attributes['content_html'];
+        if ($value) {
+            $this->attributes['meta_description'] = $value;
+        } else {
+            $html = $this->attributes['content_html'];
 
-        $html = strip_tags($html);
+            $html = strip_tags($html);
 
-        $this->attributes['meta_description'] = mb_substr(str_replace(PHP_EOL, '', $html), 0, 150, 'utf-8');
-
+            $this->attributes['meta_description'] = mb_substr(str_replace(PHP_EOL, '', $html), 0, 150, 'utf-8');
+        }
     }
 
 }
